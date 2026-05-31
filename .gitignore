@@ -1,0 +1,15 @@
+# Internal working documents — not for public repo
+ACCURACY_FLAGS_*.md
+SECOND_SOURCE_VERIFICATION_*.md
+PRE_DRAFT_CHECKLIST_*.md
+METHODOLOGY_PATCH_*.md
+*_INTERNAL.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+*.swp
+*.swo
