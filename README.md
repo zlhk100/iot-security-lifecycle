@@ -71,48 +71,54 @@ taxonomy of secret protection (software-accessible → hardware-sealed
 → PUF-generated). Secure boot vs measured boot — definitions,
 relationship, and two hardware implementations (TPM and DICE).
 
-### Part 2 — Trust Extension Across the Stack *(in progress)*
-From the RoT through the boot chain, TEE boundary (TrustZone-A
-and TrustZone-M), defense-in-depth hierarchy, and remote
-attestation. How the isolation mechanisms of Layer 1 are
-orchestrated into a complete trust architecture.
+### [Part 2 — Trust Extension Across the Stack](docs/part2-trust-extension.md)
+The blind spot principle: every isolation mechanism has a gap
+defined by the transactions it never sees. DMA bypass, the
+initiator/target distinction, the boot chain split at the world
+boundary, TEE architecture and its limits, and attestation.
 
-### Part 3 — Secure Provisioning and Key Hierarchy *(planned)*
-How secrets reach the device securely. Key derivation hierarchy
-(HUK → SSK → TSK → FEK). PKI infrastructure and signing
-certificate taxonomy. Discrete TPM threat model and bus security.
-Decentralized identity at scale as a CA alternative.
+### [Part 3 — Secure Provisioning and Key Hierarchy](docs/part3-secure-provisioning.md)
+The factory floor as the highest-risk moment in the device's life.
+Three-phase provisioning threat model. HUK → SSK → TSK → FEK key
+derivation hierarchy. PKI infrastructure. Zero-touch onboarding.
+Non-securable NVM and cryptographic compensation.
 
-### Part 4 — Secure OTA and Fleet Lifecycle *(planned)*
-TUF design principles. Uptane Director/Image repository split
-and the online/offline key rationale. Anti-rollback under UNECE
-R156. SBOM and CVE pipeline (SPDX/CycloneDX/Syft). Fail-safe
-A/B recovery.
+### [Part 4 — Secure OTA and Fleet Lifecycle](docs/part4-secure-ota.md)
+OTA as a controlled vulnerability. The atomicity problem and the
+confirmation window design decision. Uptane key hierarchy and the
+offline image key question resolved. Anti-rollback edge cases.
+SBOM as a response capability.
 
-### Part 5 — Threat Modelling Methodology *(planned)*
-Three-class attack taxonomy (remote, local, physical) with
-countermeasure mapping. STRIDE applied to embedded systems.
-Asset table methodology. Crypto agility and algorithm lifecycle.
+### [Part 5 — Threat Modelling Methodology](docs/part5-threat-modelling.md)
+Asset table methodology with the DIU (Data in Use) column.
+Three-class attacker model mapped to assets. STRIDE applied to
+trust boundary crossings, not components. Crypto agility as a
+threat model dimension with PQC timeline.
 
-### Part 6 — Case Studies *(planned)*
-Three platform contexts examined through the series framework:
-mobile platform defense-in-depth, automotive V2X UNECE R155
-compliance, and industrial OT Zero Trust augmentation.
+### [Part 6 — Case Studies](docs/part6-case-studies.md)
+Three platforms, three non-obvious engineering decisions: (1) Pixel
+6 — why TrustZone alone was insufficient and what it forced; (2)
+Automotive V2X TCU — the forensic logging / GDPR schema separation
+problem; (3) Industrial SCADA — what the Purdue model cannot see
+and Zero Trust as augmentation.
 
-### Part 7 — Extending Trust to the Edge AI Stack *(planned)*
-The emerging threat model for AIoT: model weight protection,
-inference result integrity, multi-tenant edge platforms. SPDM
-for ECU-to-ECU and accelerator-to-host attestation. Where TEE
-ends and CCA begins.
+### [Part 7 — Extending Trust to the Edge AI Stack](docs/part7-edge-ai.md)
+Model weights as a new principal the framework did not address.
+Three properties model weights require. SPDM for accelerator-to-host
+attestation. The open problem of inference result integrity, honestly
+stated.
 
-### [Appendix A — Regulatory Quick Reference](docs/appendix-a-regulatory-reference.md) *(planned)*
-One-table summary: regulation → scope → key engineering
-requirement → relevant series section.
+### [Appendix A — Regulatory Quick Reference](docs/appendix-a-regulatory-reference.md)
+Navigation table: regulation → scope → key engineering obligation
+→ relevant series section. Covers CRA, R155/R156, IEC 62443, FIPS,
+NIST SP 800-193/218, PSA Certified, DICE, SPDM, RATS, CNSA 2.0,
+NIST PQC standards.
 
-### [Appendix B — UNECE R155 Annex 5 Practitioner Mapping](docs/appendix-b-r155-annex5.md) *(planned)*
-The full R155 Annex 5 threat/mitigation table annotated with
-engineering implementation notes. Standalone reference for
-automotive BSP engineers.
+### [Appendix B — UNECE R155 Annex 5 Practitioner Mapping](docs/appendix-b-r155-annex5.md)
+All eight R155 Annex 5 Part B threat tables annotated with
+engineering implementation notes. BSP/OEM obligation split.
+Forensic logging / GDPR dual-obligation items marked. EVITA HSM
+tier guidance. Standalone reference for automotive BSP engineers.
 
 ---
 
@@ -136,9 +142,15 @@ why those mechanisms must be correctly configured.
 | Part | Status | Word count |
 |---|---|---|
 | Part 0 — Why This Matters | ✅ Complete | ~1,400 |
-| Part 1 — Hardware Root of Trust | ✅ Complete | ~2,700 |
-| Part 2 — Trust Extension | 🔄 In progress | — |
-| Parts 3–7, Appendices | 📋 Planned | — |
+| Part 1 — Hardware Root of Trust | ✅ Complete | ~2,800 |
+| Part 2 — Trust Extension Across the Stack | ✅ Complete | ~3,460 |
+| Part 3 — Secure Provisioning and Key Hierarchy | ✅ Complete | ~2,700 |
+| Part 4 — Secure OTA and Fleet Lifecycle | ✅ Complete | ~1,320 |
+| Part 5 — Threat Modelling Methodology | ✅ Complete | ~2,900 |
+| Part 6 — Case Studies | ✅ Complete | ~2,070 |
+| Part 7 — Extending Trust to the Edge AI Stack | ✅ Complete | ~1,420 |
+| Appendix A — Regulatory Quick Reference | ✅ Complete | ~900 |
+| Appendix B — UNECE R155 Annex 5 Practitioner Mapping | ✅ Complete | ~2,780 |
 
 ---
 
